@@ -29,8 +29,8 @@ async def five_minute_job():
     """Runs a simple timer exactly every 5 minutes."""
     while True:
         print(f"[{datetime.now()}] 5-Minute Timer Executed.")
-        # Sleep for 300 seconds (5 minutes) before running again
-        await asyncio.sleep(300)
+        # Sleep for 60 seconds (5 minutes) before running again
+        await asyncio.sleep(60)
 
 async def main():
     print(f"Starting custom Python native scheduler at {datetime.now()}...")
