@@ -1,7 +1,9 @@
 from fastapi import FastAPI, HTTPException
-from services import fetch_competitive_news
+from app.services import fetch_competitive_news
+from dotenv import load_dotenv
 
 app = FastAPI()
+load_dotenv()
 
 @app.get("/")
 def home():
@@ -12,7 +14,7 @@ def home():
 def health():
     return {"status": "ok"}
 
-@app.post("/api/news")
+@app.get("/api/news")
 async def api_fetch_fresh_news():
     # Call the common function
     result = await fetch_competitive_news()
